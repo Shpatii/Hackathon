@@ -1,6 +1,14 @@
+*{
+    color: white;
+}
+
 body{
-    background-color: #edf1f5;
+    background-color: rgb(53, 53, 53);
     margin-top:20px;
+    color: white
+}
+.table{
+    background-color: #505050;
 }
 .card {
     margin-bottom: 30px;
@@ -11,7 +19,7 @@ body{
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: #505050;
     background-clip: border-box;
     border: 0 solid transparent;
     border-radius: 0;
@@ -19,14 +27,13 @@ body{
 .card .card-subtitle {
     font-weight: 300;
     margin-bottom: 10px;
-    color: #8898aa;
+    color: #505050;
 }
 .table-product.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #f3f8fa!important
+    background-color: #5a5a5a;
 }
 .table-product td{
-    border-top: 0px solid #dee2e6 !important;
-    color: #728299!important;
+    border-top: 0px solid #505050;
 }
 .linku{
     color: white;

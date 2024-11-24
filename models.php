@@ -2,12 +2,12 @@
 
 include_once("config.php");
 
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM products";
 
 $sqlPrep = $connect->prepare($sql);
 $sqlPrep->execute();
 
-$users = $sqlPrep->fetchAll();
+$products = $sqlPrep->fetchAll();
 
 ?>
 
@@ -27,7 +27,7 @@ $users = $sqlPrep->fetchAll();
   <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
     <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
+        <h5 class="offcanvas-title" id="sidebarMenuLabel">GPT Market</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
@@ -51,9 +51,9 @@ $users = $sqlPrep->fetchAll();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="models.php">
+            <a class="nav-link d-flex align-items-center gap-2" href="dashboard.php">
               <svg class="bi"><use xlink:href="#cart"/></svg>
-              Models
+              Users
             </a>
           </li>
         </ul>
@@ -97,30 +97,23 @@ $users = $sqlPrep->fetchAll();
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Username</th>
-            <th scope="col">Email</th>
-            <th scope="col">Password</th>
-            <th scope="col">Role</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Description</th>
             <th scope="col">Delete</th>
-            <th scope="col">Edit</th>
           </tr>
         </thead>
   <tbody>
 
   <?php
 
-  foreach ($users as $user) { ?>
+  foreach ($products as $product) { ?>
    
     <tr>
-      <td><?php echo $user['id']; ?></td>
-      <td><?php echo $user['username']; ?></td>
-      <td><?php echo $user['email']; ?></td>
-      <td><?php echo $user['password']; ?></td>
-      <td><?php echo $user['role']; ?></td>
-      <td><button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?php echo $user['id']; ?>">
+      <td><?php echo $product['id']; ?></td>
+      <td><?php echo $product['model_name']; ?></td>
+      <td><?php echo $product['model_description']; ?></td>
+      <td><button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?php echo $product['id']; ?>">
       Delete</td>
-			<td><?php echo "<a href='edit.php?id=$user[id]'>Edit</a>" ?></td>
-    </tr>
  <?php } ?>  
           
           
@@ -137,7 +130,7 @@ $users = $sqlPrep->fetchAll();
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Are you sure you want to delete this user?
+        Are you sure you want to delete this Model?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>

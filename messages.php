@@ -2,12 +2,12 @@
 
 include_once("config.php");
 
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM contact";
 
 $sqlPrep = $connect->prepare($sql);
 $sqlPrep->execute();
 
-$users = $sqlPrep->fetchAll();
+$contact = $sqlPrep->fetchAll();
 
 ?>
 
@@ -33,21 +33,15 @@ $users = $sqlPrep->fetchAll();
       <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+            <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="dashboard.php">
               <svg class="bi"><use xlink:href="#house-fill"/></svg>
-              Dashboard
+              Users
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2" href="addModel.php">
               <svg class="bi"><use xlink:href="#file-earmark"/></svg>
               Add Model
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="messages.php">
-              <svg class="bi"><use xlink:href="#cart"/></svg>
-              Messages
             </a>
           </li>
           <li class="nav-item">
@@ -97,29 +91,28 @@ $users = $sqlPrep->fetchAll();
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Username</th>
+            <th scope="col">Full Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Password</th>
-            <th scope="col">Role</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Messages</th>
             <th scope="col">Delete</th>
-            <th scope="col">Edit</th>
           </tr>
         </thead>
   <tbody>
 
   <?php
 
-  foreach ($users as $user) { ?>
+  foreach ($contact as $contacts) { ?>
    
     <tr>
-      <td><?php echo $user['id']; ?></td>
-      <td><?php echo $user['username']; ?></td>
-      <td><?php echo $user['email']; ?></td>
-      <td><?php echo $user['password']; ?></td>
-      <td><?php echo $user['role']; ?></td>
+      <td><?php echo $contacts['id']; ?></td>
+      <td><?php echo $contacts['name']; ?></td>
+      <td><?php echo $contacts['email']; ?></td>
+      <td><?php echo $contacts['subject']; ?></td>
+      <td><?php echo $contacts['message']; ?></td>
       <td><button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?php echo $user['id']; ?>">
       Delete</td>
-			<td><?php echo "<a href='edit.php?id=$user[id]'>Edit</a>" ?></td>
+	
     </tr>
  <?php } ?>  
           
@@ -137,7 +130,7 @@ $users = $sqlPrep->fetchAll();
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Are you sure you want to delete this user?
+        Are you sure you want to delete this message?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>

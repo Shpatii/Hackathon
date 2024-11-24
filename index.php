@@ -14,7 +14,7 @@ $models_data = $prep->fetchAll();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>GPT Market</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
   <link href="style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -28,7 +28,7 @@ $models_data = $prep->fetchAll();
 
 <header>
   <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
+    <div style="background-color: #212529;" class="container">
       <a href="#" class="navbar-brand d-flex align-items-center">
         <strong>GPT Market</strong>
       </a>
@@ -42,7 +42,7 @@ $models_data = $prep->fetchAll();
             <li><span class="dropdown-item-text">Logged in as <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong></span></li>
             <li><hr class="dropdown-divider"></li>
             <li>
-              <form action="/Hackathon/logout.php" method="POST" class="d-inline">
+              <form action="logout.php" method="POST" class="d-inline">
                 <button class="dropdown-item text-danger" type="submit">Logout</button>
               </form>
               
@@ -50,7 +50,7 @@ $models_data = $prep->fetchAll();
         </div>
       <?php else: ?>
         <!-- If user is not logged in -->
-        <a href="/Hackathon/signup.php" class="btn btn-dark">
+        <a href="signup.php" style="background-color: #c934eb; border-color: #c934eb;" class="btn btn-dark">
           <span class="bi-person-circle"></span> Sign Up
         </a>
       <?php endif; ?>
@@ -62,12 +62,12 @@ $models_data = $prep->fetchAll();
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto headeri">
-        <h1 class="fw-light">GPT Market</h1>
-        <p class="lead text-body-secondary">Leading Market for AI models, tailor made for every business.</p>
+        <h1 style="font-weight: 900;" class="fw-light">GPT Market</h1>
+        <p style="font-weight: 400;"class="lead">Leading Market for AI models, tailor made for every business. We specialize in integrating AI Models anywhere based on your requests.</p>
         <p>
-          <a href="#" class="btn btn-primary my-2">Contact Us</a>
-          <a href="#" class="btn btn-secondary my-2">Gallery</a>
+          <a href="contact.php" style="background-color: #c934eb; border-color: #c934eb;" class="btn btn-primary my-2">Contact Us</a>
         </p>
+        <p style="font-weight: 400;">Check our most popular Models below.</p>
       </div>
     </div>
   </section>
@@ -77,14 +77,14 @@ $models_data = $prep->fetchAll();
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     <?php foreach ($models_data as $model_data) { ?>
         <div class="col">
-            <div class="card shadow-sm">
+            <div class="card">
                 <img src="<?php echo $model_data['model_image']; ?>" class="card-img-top" alt="Model Image" style="height: 225px; object-fit: cover;">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $model_data['model_name']; ?></h5>
-                    <p class="card-text"><?php echo $model_data['model_description']; ?></p>
+                    <h5 class="card-title text-white"><?php echo $model_data['model_name']; ?></h5>
+                    <p class="card-text text-white"><?php echo $model_data['model_description']; ?></p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <a href="view.php?id=<?php echo $model_data['id']; ?>" class="btn btn-sm btn-outline-secondary">View</a>
+                            <a href="view.php?id=<?php echo $model_data['id']; ?>"  style="border-color:#c934eb; color:#c934eb;"class="btn btn-sm btn-outline-secondary">View</a>
                         </div>
                     </div>
                 </div>
@@ -96,13 +96,12 @@ $models_data = $prep->fetchAll();
   </div>
 </main>
 
-<footer class="text-body-secondary py-5">
-  <div class="container">
+<footer class="text-white py-5">
+  <div  style="backgorund-color:#c934be" class="container">
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
     </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.3/getting-started/introduction/">getting started guide</a>.</p>
+    <p class="mb-1">Shpat Kryeziu 2024 &copy;</p>
   </div>
 </footer>
 

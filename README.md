@@ -11,3 +11,16 @@ OPEN_AI_KEY=your-openai-api-key-here
 ## 2. Secure the .env file
 # .gitignore
 .env
+
+
+## 3. Copy the API and paste into chatbot.js inside line 6
+
+
+
+Admin Credentials :
+
+Email
+admin@gmail.com  
+
+Password
+admin

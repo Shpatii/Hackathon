@@ -39,18 +39,23 @@ $model_data = $sqlPrep->fetch();
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <h3 class="box-title mt-5">More Info</h3>
                     <div class="table-responsive">
-                        <table class="table table-striped table-product">
+                        <table style="background-color:#5a5a5a;"class="table table-product">
                             <tbody>
-                                <tr>
+                                <tr> 
                                     <td width="390">Try ChatBot</td>
-                                    <td><button type="button" class="btn btn-primary btn-lg"><a href="" class="linku">See More</a></button></td>
+                                    <td><button type="button" style="background-color: #c934eb; border-color:#c934eb;" class="btn btn-primary btn-lg"><a href="chatbot.php" class="linku">See More</a></button></td>
                                 </tr>
                                 <tr>
                                     <td width="390">Try Image Generator</td>
-                                    <td><button type="button" class="btn btn-primary btn-lg"><a href="" class="linku">See More</a></button></td>
+                                    <td><button type="button" style="background-color: #c934eb; border-color:#c934eb;" class="btn btn-primary btn-lg"><a href="generator.php" class="linku">See More</a></button></td>
                                 </tr>
                                 <tr>
-                                    <td><button type="button" class="btn btn-primary btn-lg"><a href="index.php" class="linku">Go Back-></a></button></td>
+                                    <td width="390">Go Back to Home Page</td>
+                                    <td><button type="button" style="background-color: #c934eb; border-color:#c934eb;" class="btn btn-primary btn-lg"><a href="index.php" class="linku">Go Back-></a></button></td>
+                                </tr>
+                                <tr> 
+                                    <td width="390">Pricing</td>
+                                    <td><button type="button" style="background-color: #c934eb; border-color:#c934eb;" class="btn btn-primary btn-lg"><a href="contact.php" class="linku">Contact Us</a></button></td>
                                 </tr>
                             </tbody>
                         </table>
