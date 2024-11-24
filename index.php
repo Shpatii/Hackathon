@@ -1,5 +1,12 @@
 <?php
-session_start(); // Start the session to check login status
+session_start(); 
+
+include_once('config.php');
+
+$sql = "SELECT * FROM products";
+$prep = $connect->prepare($sql);
+$prep->execute();
+$models_data = $prep->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -11,29 +18,42 @@ session_start(); // Start the session to check login status
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
   <link href="style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    .dropdown-menu {
+  min-width: 200px;
+}
+  </style>
 </head>
 <body>
-<header data-bs-theme="dark">
+
+<header>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
       <a href="#" class="navbar-brand d-flex align-items-center">
         <strong>GPT Market</strong>
       </a>
-      
+
       <?php if (isset($_SESSION['username'])): ?>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Logged in as <?php echo $_SESSION['username']; ?>">
-          <span class="bi-person-circle">Sign Up</span>
-        </button>
+        <div class="dropdown">
+          <button class="btn btn-dark dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="bi-person-circle"></span> <?php echo htmlspecialchars($_SESSION['username']); ?>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><span class="dropdown-item-text">Logged in as <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong></span></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <form action="/Hackathon/logout.php" method="POST" class="d-inline">
+                <button class="dropdown-item text-danger" type="submit">Logout</button>
+              </form>
+              
+          </ul>
+        </div>
       <?php else: ?>
         <!-- If user is not logged in -->
-        <button class="navbar-toggler" type="button">
-          <span class="bi-person-circle">
-            <a href="signup.php" class="text-light">Sign Up</a>
-          </span>
-        </button>
+        <a href="/Hackathon/signup.php" class="btn btn-dark">
+          <span class="bi-person-circle"></span> Sign Up
+        </a>
       <?php endif; ?>
-
     </div>
   </div>
 </header>
@@ -41,7 +61,7 @@ session_start(); // Start the session to check login status
 <main>
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
+      <div class="col-lg-6 col-md-8 mx-auto headeri">
         <h1 class="fw-light">GPT Market</h1>
         <p class="lead text-body-secondary">Leading Market for AI models, tailor made for every business.</p>
         <p>
@@ -52,28 +72,26 @@ session_start(); // Start the session to check login status
     </div>
   </section>
 
-  <div class="album py-5 bg-body-tertiary">
+  <div class="album py-5 bg-body-black">
     <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <?php foreach ($models_data as $model_data) { ?>
         <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"/>
-              <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-            </svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            <div class="card shadow-sm">
+                <img src="<?php echo $model_data['model_image']; ?>" class="card-img-top" alt="Model Image" style="height: 225px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $model_data['model_name']; ?></h5>
+                    <p class="card-text"><?php echo $model_data['model_description']; ?></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="view.php?id=<?php echo $model_data['id']; ?>" class="btn btn-sm btn-outline-secondary">View</a>
+                        </div>
+                    </div>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
             </div>
-          </div>
         </div>
+    <?php } ?>
+</div>
      </div>
   </div>
 </main>
@@ -90,7 +108,6 @@ session_start(); // Start the session to check login status
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // Initialize Bootstrap tooltips
   document.addEventListener('DOMContentLoaded', function () {
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

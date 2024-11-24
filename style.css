@@ -1,3 +1,19 @@
+
+
+body{
+  background-color: rgb(64, 64, 64);
+  
+}
+main{
+  background-color: rgb(200, 186, 186);
+}
+.container{
+  background-color: rgb(64, 64, 64);
+}
+.headeri{
+  color: white;
+  font-weight: 600;
+}
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;

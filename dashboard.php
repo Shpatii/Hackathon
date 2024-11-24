@@ -39,7 +39,7 @@ $users = $sqlPrep->fetchAll();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="#">
+            <a class="nav-link d-flex align-items-center gap-2" href="addModel.php">
               <svg class="bi"><use xlink:href="#file-earmark"/></svg>
               Add Model
             </a>
