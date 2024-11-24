@@ -64,7 +64,7 @@ $users = $sqlPrep->fetchAll();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="#">
+            <a class="nav-link d-flex align-items-center gap-2" href="index.php">
               <svg class="bi"><use link:href="/index.php"/></svg>
               Back to Home
             </a>
@@ -111,8 +111,9 @@ $users = $sqlPrep->fetchAll();
       <td><?php echo $user['email']; ?></td>
       <td><?php echo $user['password']; ?></td>
       <td><?php echo $user['role']; ?></td>
-      <td><?php echo "<a href='delete.php?id=$user[id]'>Delete</a>" ?></td>
-							<td><?php echo "<a href='edit.php?id=$user[id]'>Edit</a>" ?></td>
+      <td><button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?php echo $user['id']; ?>">
+      Delete</td>
+			<td><?php echo "<a href='edit.php?id=$user[id]'>Edit</a>" ?></td>
     </tr>
  <?php } ?>  
           
@@ -121,7 +122,37 @@ $users = $sqlPrep->fetchAll();
       </table>
     </div>
   </main>
+
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this user?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <a href="#" id="confirmDeleteBtn" class="btn btn-danger">Yes</a>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const deleteModal = document.getElementById('deleteModal');
+  const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+
+  deleteModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget; // Button that triggered the modal
+    const userId = button.getAttribute('data-id'); // Extract user ID from data-id attribute
+    confirmDeleteBtn.setAttribute('href', `delete.php?id=${userId}`); // Set the delete URL dynamically
+  });
+</script>
 </body>
 </html>
