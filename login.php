@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(isset($_SESSION['user_id'])) {
+	header("Location: index.php");\
+	exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +18,14 @@
 
 	<main class="form-signin w-50 m-auto">
 	  <form action="loginLogic.php" method="POST">
-	    <h1 class="h3 mb-3 fw-normal">Log In</h1>
+	    <h1 class="h3 mb-3 fw-normal">Log In To Your Account</h1>
 
 	    </div>
-	    <div class="form-floating">
+	    <div class="form-floating py-1">
 	      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
 	      <label for="floatingInput">Email address</label>
 	    </div>
-	    <div class="form-floating">
+	    <div class="form-floating py-1">
 	      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
 	      <label for="floatingPassword">Password</label>
 	    </div>

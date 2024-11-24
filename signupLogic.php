@@ -24,10 +24,8 @@ if (isset($_POST['submit'])) {
         $sqlCheckUsernames = $connect->prepare($sql);
         $sqlCheckUsernames->bindParam(':username', $username);
         $sqlCheckUsernames->execute();
-        echo"Hello";
         if ($sqlCheckUsernames->rowCount() > 0) {
-            echo "Username already exists. Try another one";
-            //header("refresh:2; url=signup.php");
+            header("refresh:2; url=username.php");
         } else {
             // Insert new user into the database
             $sql = "INSERT INTO users(username, email, password, role) VALUES (:username, :email, :password, :role)";
