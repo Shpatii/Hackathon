@@ -96,12 +96,30 @@ $models_data = $prep->fetchAll();
   </div>
 </main>
 
-<footer class="text-white py-5">
-  <div  style="backgorund-color:#c934be" class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">Shpat Kryeziu 2024 &copy;</p>
+<footer class="footer text-white py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Footer Branding -->
+      <div class="col-md-5">
+        <h5>Shpat Kryeziu</h5>
+        <p>Empowering ideas with innovation.</p>
+      </div>
+      
+      <!-- Quick Links -->
+      <div class="col-md-5">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="index.php" class="footer-link">Home</a></li>
+          <li><a href="chatbot.php" class="footer-link">Chatbot</a></li>
+          <li><a href="generator.php" class="footer-link">Image Generator</a></li>
+          <li><a href="contact.php" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+      
+      <!-- Social Links -->
+    
+    <hr class="mt-4">
+    <p class="text-center mb-0">© 2024 Shpat Kryeziu. All rights reserved.</p>
   </div>
 </footer>
 

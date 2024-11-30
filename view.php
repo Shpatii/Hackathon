@@ -39,32 +39,91 @@ $model_data = $sqlPrep->fetch();
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <h3 class="box-title mt-5">More Info</h3>
                     <div class="table-responsive">
-                        <table class="table table-product bg-dark">
-                            <tbody>
-                                <tr> 
-                                    <td width="390">Try ChatBot</td>
-                                    <td><button type="button" style="background-color: #c934eb; border-color:#c934eb;" class="btn btn-primary btn-lg"><a href="chatbot.php" class="linku">See More</a></button></td>
-                                </tr>
-                                <tr>
-                                    <td width="390">Try Image Generator</td>
-                                    <td><button type="button" style="background-color: #c934eb; border-color:#c934eb;" class="btn btn-primary btn-lg"><a href="generator.php" class="linku">See More</a></button></td>
-                                </tr>
-                                <tr>
-                                    <td width="390">Go Back to Home Page</td>
-                                    <td><button type="button" style="background-color: #c934eb; border-color:#c934eb;" class="btn btn-primary btn-lg"><a href="index.php" class="linku">Go Back-></a></button></td>
-                                </tr>
-                                <tr> 
-                                    <td width="390">Pricing</td>
-                                    <td><button type="button" style="background-color: #c934eb; border-color:#c934eb;" class="btn btn-primary btn-lg"><a href="contact.php" class="linku">Contact Us</a></button></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <table class="table table-product bg-dark">
+    <tbody>
+        <tr> 
+            <td class="bg-cell-header" width="390">Try ChatBot</td>
+            <td class="bg-cell-highlight"><button type="button" class="btn btn-primary btn-lg"><a href="chatbot.php" class="linku">See More</a></button></td>
+        </tr>
+        <tr>
+            <td class="bg-cell-header" width="390">Try Image Generator</td>
+            <td class="bg-cell-highlight"><button type="button" class="btn btn-primary btn-lg"><a href="generator.php" class="linku">See More</a></button></td>
+        </tr>
+        <tr>
+            <td class="bg-cell-header" width="390">Go Back to Home Page</td>
+            <td class="bg-cell-highlight"><button type="button" class="btn btn-primary btn-lg"><a href="index.php" class="linku">Go Back-></a></button></td>
+        </tr>
+        <tr> 
+            <td class="bg-cell-header" width="390">Pricing</td>
+            <td class="bg-cell-highlight"><button type="button" class="btn btn-primary btn-lg"><a href="contact.php" class="linku">Contact Us</a></button></td>
+        </tr>
+    </tbody>
+</table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<style>
+    .table-product {
+        width: 100%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+    }
 
+    .table-product tbody tr {
+        border-bottom: 1px solid #333;
+    }
+
+    td .
+
+    .table-product td {
+        padding: 15px 20px;
+        vertical-align: middle;
+    }
+
+    /* Dark-themed cell background colors */
+    .table-product .bg-cell-header {
+        background-color: #2d2d2d; /* Deep Black */
+        color: #fff;
+    }
+
+    .table-product .bg-cell-highlight {
+        background-color: #2d2d2d; /* Dark Gray */
+    }
+
+    .table-product .bg-cell-secondary {
+        background-color: #2d2d2d; /* Slightly Lighter Gray */
+    }
+
+    .btn-primary {
+        font-size: 1em;
+        padding: 10px 20px;
+        border-radius: 25px;
+        background-color: #c934eb; /* Purple */
+        border: none;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-primary a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #a51ed5;
+        transform: scale(1.05);
+    }
+
+    .bg-dark {
+        background-color: #121212; /* Ultra-dark background */
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    }
+</style>
 </body>
 </html>
