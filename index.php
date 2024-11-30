@@ -49,7 +49,7 @@ $models_data = $prep->fetchAll();
           </ul>
         </div>
       <?php else: ?>
-        <!-- If user is not logged in -->
+
         <a href="signup.php" style="background-color: #c934eb; border-color: #c934eb;" class="btn btn-dark">
           <span class="bi-person-circle"></span> Sign Up
         </a>

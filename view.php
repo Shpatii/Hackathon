@@ -39,7 +39,7 @@ $model_data = $sqlPrep->fetch();
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <h3 class="box-title mt-5">More Info</h3>
                     <div class="table-responsive">
-                        <table style="background-color:#5a5a5a;"class="table table-product">
+                        <table class="table table-product bg-dark">
                             <tbody>
                                 <tr> 
                                     <td width="390">Try ChatBot</td>

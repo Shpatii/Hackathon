@@ -21,16 +21,16 @@ if(isset($_SESSION['user_id'])) {
 	    <h1 class="h3 mb-3 fw-normal">Log In To Your Account</h1>
 
 	    </div>
-	    <div class="form-floating py-1">
-	      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+	    <div class="mb-2 py-2">
+	      <input type="email" class="form-control py-3" id="floatingInput" placeholder="name@example.com" name="email">
 	      <label for="floatingInput">Email address</label>
 	    </div>
-	    <div class="form-floating py-1">
-	      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+	    <div class="mb-2 py-2">
+	      <input type="password" class="form-control py-3" id="floatingPassword" placeholder="Password" name="password">
 	      <label for="floatingPassword">Password</label>
 	    </div>
 
-	    <button class="btn btn-primary w-100 py-2" type="submit" name="submit">Log In</button>
+	    <button class="btn btn-bd-primary w-100 py-3" type="submit" name="submit">Log In</button>
 	    
 	  </form>
 </main>
